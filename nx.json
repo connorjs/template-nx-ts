@@ -1,0 +1,56 @@
+{
+	"$schema": "node_modules/nx/schemas/nx-schema.json",
+	"affected": {
+		"defaultBase": "main"
+	},
+	"namedInputs": {
+		"default": ["{projectRoot}/**/*"],
+		"rootTsConfig": [
+			"{workspaceRoot}/config/ts/tsconfig.json",
+			"{workspaceRoot}/tsconfig.json"
+		],
+		"rootVitestConfig": ["{workspaceRoot}/vitest.config.ts"],
+		"typescript": ["{projectRoot}/**/*.{ts,tsx}", "{projectRoot}/tsconfig.json"]
+	},
+	"targetDefaults": {
+		"clean": {
+			"cache": false,
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "shx rm -rf dist/{projectName}"
+			}
+		},
+		"codegen": {
+			"cache": true,
+			"executor": "nx:noop"
+		},
+		"eslint": {
+			"cache": true,
+			"dependsOn": ["codegen"],
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "eslint -f pretty {projectRoot}"
+			},
+			"outputs": ["{options.outputFile}"]
+		},
+		"prettier": {
+			"cache": true,
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "prettier '{projectRoot}/**/*.{cjs,css,cts,graphql,html,js,json,jsonc,jsx,md,pcss,scss,ts,tsp,tsx}' --list-different"
+			}
+		},
+		"tsc": {
+			"cache": true,
+			"dependsOn": ["codegen"],
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "tsc --build {projectRoot}"
+			}
+		}
+	},
+	"workspaceLayout": {
+		"appsDir": "apps",
+		"libsDir": "libs"
+	}
+}

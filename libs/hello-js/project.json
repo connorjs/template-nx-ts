@@ -1,0 +1,11 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "hello-js",
+	"projectType": "library",
+	"sourceRoot": "libs/hello-js/src",
+	"targets": {
+		"eslint": {},
+		"format": {},
+		"tsc": {}
+	}
+}

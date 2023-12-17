@@ -1,0 +1,21 @@
+{
+	"$schema": "node_modules/nx/schemas/project-schema.json",
+	"name": "root",
+	"targets": {
+		"coverage": {
+			"cache": true,
+			"command": "vitest run --coverage",
+			"outputs": ["{projectRoot}/build/coverage"]
+		},
+		"eslint": {
+			"cache": true,
+			"command": "eslint --format pretty '*.{cjs,js,json}'",
+			"inputs": ["{projectRoot}/*.{cjs,js,json}"]
+		},
+		"format": {
+			"cache": true,
+			"command": "prettier '*.{cjs,js,json,md,yaml,yml}' --list-different",
+			"inputs": ["{projectRoot}/*.{cjs,js,json,md,yaml,yml}"]
+		}
+	}
+}

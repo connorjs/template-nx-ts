@@ -1,0 +1,4 @@
+{
+	"compilerOptions": { "baseUrl": ".", "outDir": "./build/tsc" },
+	"extends": "../../tsconfig.json"
+}
