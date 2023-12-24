@@ -3,5 +3,5 @@ module.exports = {
 		`prettier --write`,
 		`eslint --fix`,
 	],
-	"*.{css,md,pcss,yaml,yml}": `prettier --write`,
+	"*.{css,md,pcss,scss,yaml,yml}": `prettier --write`,
 };

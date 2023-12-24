@@ -5,22 +5,23 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"prepare": "is-ci || husky install",
-		"release": "nx run-many -t coverage,eslint,prettier,tsc"
+		"ci-build": "nx run-many -t coverage,eslint,prettier,tsc",
+		"prepare": "is-ci || husky install"
 	},
+	"engineStrict": true,
 	"devDependencies": {
-		"@vitest/coverage-v8": "^1.0.4",
+		"@vitest/coverage-v8": "^1.1.0",
 		"eslint": "^8.56.0",
-		"eslint-config-connorjs": "^1.0.0-alpha.3",
+		"eslint-config-connorjs": "^1.0.0-alpha.5",
 		"eslint-formatter-pretty": "^6.0.0",
 		"husky": "^8.0.3",
 		"is-ci": "^3.0.1",
 		"lint-staged": "^15.2.0",
-		"nx": "^17.2.5",
+		"nx": "^17.2.7",
 		"prettier": "^3.1.1",
 		"shx": "^0.3.4",
 		"typescript": "^5.3.3",
-		"vitest": "^1.0.4"
+		"vitest": "^1.1.0"
 	},
 	"workspaces": []
 }
